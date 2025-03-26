@@ -1,1 +1,29 @@
-Place your configuration here
+{
+  "project_info": {
+    "project_number": "84120874836",
+    "project_id": "pushapp-327e5",
+    "storage_bucket": "pushapp-327e5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84120874836:android:7510b3a2fcf481ef8fa2c1",
+        "android_client_info": {
+          "package_name": "com.push.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwrbKO8mxCixMEmyi66GEeg3QFuRx-7CA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -22,7 +22,7 @@ export class FcmService {
   ) { }
 
   initPush() {
-    if(Capacitor.getPlatform() !== 'web') {
+    if (Capacitor.getPlatform() !== 'web') {
       this.registerPush();
       // this.getDeliveredNotifications();
     }
@@ -42,7 +42,7 @@ export class FcmService {
       }
 
       await PushNotifications.register();
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }
@@ -55,23 +55,23 @@ export class FcmService {
   addListeners() {
     PushNotifications.addListener(
       'registration',
-      async(token: Token) => {
+      async (token: Token) => {
         console.log('My token: ', token);
         const fcm_token = (token?.value);
         let go = 1;
         const saved_token = JSON.parse((await this.storage.getStorage(FCM_TOKEN)).value);
-        if(saved_token) {
-          if(fcm_token == saved_token) {
+        if (saved_token) {
+          if (fcm_token == saved_token) {
             console.log('same token');
             go = 0;
           } else {
             go = 2;
           }
         }
-        if(go == 1) {
+        if (go == 1) {
           // save token
           this.storage.setStorage(FCM_TOKEN, JSON.stringify(fcm_token));
-        } else if(go == 2) {
+        } else if (go == 2) {
           // update token
           const data = {
             expired_token: saved_token,
@@ -91,17 +91,17 @@ export class FcmService {
       async (notification: PushNotificationSchema) => {
         console.log('Push received: ' + JSON.stringify(notification));
         const data = notification?.data;
-        if(data?.redirect) this._redirect.next(data?.redirect);
+        if (data?.redirect) this._redirect.next(data?.redirect);
       }
     );
 
     PushNotifications.addListener(
       'pushNotificationActionPerformed',
-      async (notification:ActionPerformed) => {
+      async (notification: ActionPerformed) => {
         const data = notification.notification.data;
         console.log('Action performed: ' + JSON.stringify(notification.notification));
         console.log('push data: ', data);
-        if(data?.redirect) this._redirect.next(data?.redirect);
+        if (data?.redirect) this._redirect.next(data?.redirect);
       }
     );
   }
@@ -110,9 +110,9 @@ export class FcmService {
     try {
       const saved_token = JSON.parse((await this.storage.getStorage(FCM_TOKEN)).value);
       this.storage.removeStorage(saved_token);
-    } catch(e) {
+    } catch (e) {
       console.log(e);
-      throw(e);
+      throw (e);
     }
 
   }

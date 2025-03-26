@@ -12,16 +12,16 @@ export class StorageService {
   constructor() { }
 
   setStorage(key: string, value: any) {
-    Preferences.set({key: key, value: value});
+    Preferences.set({ key: key, value: value });
   }
 
   getStorage(key: string): any {
     // Preferences.migrate();
-    return Preferences.get({key: key});
+    return Preferences.get({ key: key });
   }
 
   removeStorage(key: string) {
-    Preferences.remove({key: key});
+    Preferences.remove({ key: key });
   }
 
   clearStorage() {
@@ -29,7 +29,7 @@ export class StorageService {
   }
 
   getToken(): Observable<any> {
-    return from(this.getStorage(APP_TOKEN));    
+    return from(this.getStorage(APP_TOKEN));
   }
-  
+
 }

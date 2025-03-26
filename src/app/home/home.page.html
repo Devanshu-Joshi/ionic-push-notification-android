@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Push Notifications
-    </ion-title>
+    <ion-title>Push Notifications</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
- 
+<ion-content class="ion-padding">
+  <h3 class="heading">Order Something</h3>
+
+  <div class="input-container">
+    <ion-input [(ngModel)]="orderText" placeholder="Enter your order" class="custom-input" fill="outline">
+    </ion-input>
+    <ion-button fill="solid" color="primary" class="custom-button" (click)="clearInput()">Submit</ion-button>
+  </div>
 </ion-content>

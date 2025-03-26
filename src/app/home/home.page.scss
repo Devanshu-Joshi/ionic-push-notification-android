@@ -1,0 +1,58 @@
+.heading {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 16px;
+    /* Smaller heading */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Reduce space between input and button */
+    background: #1e1e1e;
+    padding: 4px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.custom-input {
+    flex-grow: 1;
+    --background: #2a2a2a;
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --padding-start: 6px;
+    --padding-end: 6px;
+    --border-radius: 4px;
+    font-size: 10px;
+    /* Smaller text size */
+    display: flex;
+    align-items: center;
+    /* Align text */
+    height: 35px !important;
+    min-height: 35px !important;
+    /* Force input height */
+}
+
+/* The key fix: Override Ionic's internal height */
+.custom-input::part(native) {
+    height: 30px !important;
+    /* Set exact height */
+    line-height: 30px !important;
+    /* Align text properly */
+    padding: 0 6px !important;
+    /* Ensure no extra padding */
+    display: flex;
+    align-items: center;
+}
+
+.custom-button {
+    height: 30px;
+    /* Smaller button */
+    --border-radius: 4px;
+    --padding-start: 6px;
+    --padding-end: 6px;
+    font-size: 10px;
+    /* Smaller button text */
+}
