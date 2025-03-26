@@ -11,12 +11,15 @@ export class SendService {
   sendOrder(notification: Notification) {
     console.log("Sending notification:", notification); // Debugging
 
-    this._http.post<string>('http://192.168.12.243:3080/fcm/send-notification', notification, { responseType: "text" as 'json' })
+    this._http.post<string>(
+      `http://192.168.155.48:8080/api/notifications/send?token=${notification._token}&title=${notification._title}&message=${notification._body}`,
+      {},
+      { responseType: 'json' as const }
+    )
       .subscribe({
         next: (data) => console.log("Success:", data),
         error: (error) => console.error("Error:", error), // Debugging
         complete: () => console.log("Request completed") // Optional
       });
   }
-
 }

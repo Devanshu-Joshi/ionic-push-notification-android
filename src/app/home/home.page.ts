@@ -45,7 +45,7 @@ export class HomePage {
 
       console.log("Sending notification:", this._notificationObject); // Debugging
 
-      // this._sendService.sendOrder(this._notificationObject);
+      this._sendService.sendOrder(this._notificationObject);
 
       this.orderText = ''; // Clears the input field
     });
